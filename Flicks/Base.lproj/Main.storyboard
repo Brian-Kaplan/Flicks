@@ -47,7 +47,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="overviewLabel" destination="mMU-20-qQ5" id="KKa-yV-sV1"/>
-                                            <outlet property="posterView" destination="uCc-ao-x6e" id="Dff-MU-aYQ"/>
+                                            <outlet property="posterView" destination="uCc-ao-x6e" id="ouE-vC-1Ju"/>
                                             <outlet property="titleLabel" destination="zUy-IJ-ovQ" id="kjJ-SE-6hr"/>
                                         </connections>
                                     </tableViewCell>
@@ -57,7 +57,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="posterView" destination="uCc-ao-x6e" id="yli-I0-RjZ"/>
                         <outlet property="tableView" destination="kxv-C5-oRt" id="aND-zb-awB"/>
                     </connections>
                 </viewController>
