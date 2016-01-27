@@ -10,16 +10,21 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MovieViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MovieViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var networkErrorView: UIView!
+    @IBOutlet weak var searchView: UISearchBar!
     
     var movies: [NSDictionary]?
-    
+    var searchResults: [NSDictionary]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        searchView.delegate = self
+        
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
@@ -53,6 +58,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                             NSLog("response: \(responseDictionary)")
                             
                             self.movies = responseDictionary["results"] as? [NSDictionary]
+                            self.searchResults = self.movies
                             self.tableView.reloadData()
                             self.networkErrorView.hidden = true
                             // Hide HUD once the network request comes back (must be done on main UI thread)
@@ -68,6 +74,10 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
         
     }
+    
+    @IBAction func onTap(sender: AnyObject) {
+        self.searchView.endEditing(true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -75,17 +85,44 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movies = movies {
-            return movies.count
+        if let searchResults = searchResults {
+            return searchResults.count
         } else {
             return 0
         }
     }
     
+    // This method updates filteredData based on the text in the Search Box
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        if searchText.isEmpty {
+            searchResults = movies
+        } else {
+            // The user has entered text into the search box
+            // Use the filter method to iterate over all items in the data array
+            // For each item, return true if the item should be included and false if the
+            // item should NOT be included
+            searchResults = movies!.filter({(dataItem: NSDictionary) -> Bool in
+                // If dataItem matches the searchText, return true to include it
+                let title = dataItem["title"] as! String
+                if title.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil {
+                    return true
+                } else {
+                    return false
+                }
+            })
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchView.endEditing(true)
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
         
-        let movie = movies![indexPath.row]
+        let movie = searchResults![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         
@@ -127,7 +164,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                         data, options:[]) as? NSDictionary {
                             NSLog("response: \(responseDictionary)")
                             
-                            self.movies = responseDictionary["results"] as? [NSDictionary]
+                            self.searchResults = responseDictionary["results"] as? [NSDictionary]
                             self.tableView.reloadData()
                             self.networkErrorView.hidden = true
                             // Hide HUD once the network request comes back (must be done on main UI thread)
