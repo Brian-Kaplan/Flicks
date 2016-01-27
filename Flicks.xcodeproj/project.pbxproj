@@ -16,6 +16,7 @@
 		D3405A301C4AE8D30040E15C /* FlicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405A2F1C4AE8D30040E15C /* FlicksUITests.swift */; };
 		D3405A3E1C4AEA470040E15C /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405A3D1C4AEA470040E15C /* MovieViewController.swift */; };
 		D3EDCB431C54697D0044D146 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDCB421C54697D0044D146 /* MovieCell.swift */; };
+		D3F22BFE1C585D0100CEF094 /* warning-4-xxl.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F22BFD1C585D0100CEF094 /* warning-4-xxl.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D3405A311C4AE8D30040E15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3405A3D1C4AEA470040E15C /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		D3EDCB421C54697D0044D146 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		D3F22BFD1C585D0100CEF094 /* warning-4-xxl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning-4-xxl.png"; sourceTree = SOURCE_ROOT; };
 		F11235620EB0DB8A5C2C2A15 /* Pods-Flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 				D3405A161C4AE8D20040E15C /* Assets.xcassets */,
 				D3405A181C4AE8D20040E15C /* LaunchScreen.storyboard */,
 				D3405A1B1C4AE8D20040E15C /* Info.plist */,
+				D3F22BFD1C585D0100CEF094 /* warning-4-xxl.png */,
 			);
 			path = Flicks;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3F22BFE1C585D0100CEF094 /* warning-4-xxl.png in Resources */,
 				D3405A1A1C4AE8D20040E15C /* LaunchScreen.storyboard in Resources */,
 				D3405A171C4AE8D20040E15C /* Assets.xcassets in Resources */,
 				D3405A151C4AE8D20040E15C /* Main.storyboard in Resources */,
