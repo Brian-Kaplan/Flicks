@@ -164,7 +164,8 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                         data, options:[]) as? NSDictionary {
                             NSLog("response: \(responseDictionary)")
                             
-                            self.searchResults = responseDictionary["results"] as? [NSDictionary]
+                            self.movies = responseDictionary["results"] as? [NSDictionary]
+                            self.searchResults = self.movies
                             self.tableView.reloadData()
                             self.networkErrorView.hidden = true
                             // Hide HUD once the network request comes back (must be done on main UI thread)
