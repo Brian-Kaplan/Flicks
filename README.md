@@ -2,7 +2,7 @@
 
 Flicks is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **3** hours spent in total
+Time spent: **7** hours spent in total
 
 ## User Stories
 
@@ -10,14 +10,14 @@ The following **required** functionality is complete:
 
 - [x] User can view a list of movies currently playing in theaters from The Movie Database.
 - [x] Poster images are loaded using the UIImageView category in the AFNetworking library.
-- [ ] User sees a loading state while waiting for the movies API.
-- [ ] User can pull to refresh the movie list.
+- [x] User sees a loading state while waiting for the movies API. (implemented but hard to see)
+- [x] User can pull to refresh the movie list.
 
 The following **optional** features are implemented:
 
-- [ ] User sees an error message when there's a networking error.
+- [x] User sees an error message when there's a networking error. (will not show if movie data is cached)
 - [ ] Movies are displayed using a CollectionView instead of a TableView.
-- [ ] User can search for a movie.
+- [x] User can search for a movie.
 - [ ] All images fade in as they are loading.
 - [ ] Customize the UI.
 
