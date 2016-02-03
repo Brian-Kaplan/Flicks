@@ -18,6 +18,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var movies: [NSDictionary]?
     var searchResults: [NSDictionary]?
+    var endpoint: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // Do any additional setup after loading the view.
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
         
         // ... Create the NSURLRequest (myRequest) ...
         let request = NSURLRequest(URL: url!)
@@ -145,7 +146,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // ... Create the NSURLRequest (myRequest) ...
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
         
         // ... Create the NSURLRequest (myRequest) ...
         let request = NSURLRequest(URL: url!)
