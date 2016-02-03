@@ -53,9 +53,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="o2m-oG-acq" appends="YES" id="8k1-VL-4uK"/>
-                                </connections>
                             </tableView>
                             <searchBar contentMode="redraw" id="ktE-Ld-dB9">
                                 <rect key="frame" x="0.0" y="63" width="320" height="44"/>
@@ -93,13 +90,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="o2m-oG-acq">
-                    <connections>
-                        <action selector="onTap:" destination="BYZ-38-t0r" id="qQu-8Q-7DR"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="122" y="271"/>
+            <point key="canvasLocation" x="98" y="271"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="ewj-vN-oIu">
